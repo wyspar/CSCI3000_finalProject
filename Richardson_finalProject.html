@@ -16,9 +16,17 @@ Desc: CSCI 3000 DA C0. Final Project. Home page html
 <div class="header">
 	<h1 id="title">Buffalo Bistro</h1>
 	<div class="headerButtons">
-		<button class="headButtons" <?php if(!loggedin){echo"display:none";}?>><img class="shoppingCart" src="./images/shoppingcart.png"></img></button>
-		<button class="headButtons">Login</button>
-		<button class="headButtons">Sign Up</button>
+		<form action="shoppingCart.php" method="post">
+			<input <?php if(@!$loggedin){echo"style='display:none;'";}?>class="headButtons shoppingCart" type="submit" value=""></input>
+		</form>
+		<form action="signup.php" method="post">
+			<input class="headButtons" type="submit" value="Sign Up">
+		</form>
+		<form action="login.php" method="post">
+			<input class="headButtons" type="submit" value="Login">
+		</form>
+		<!-- <button class="headButtons">Login</button>
+		<button class="headButtons">Sign Up</button> -->
 	</div>
 </div>
 
