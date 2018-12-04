@@ -5,31 +5,34 @@ Date: 11/29/18
 Desc: CSCI 3000 DA C0. Final PHP login file. Logs the customer in
 */
 
-function onLogin($user) {
-    $token = GenerateRandomToken(); // generate a token, should be 128 - 256 bit
-    storeTokenForUser($user, $token);
-    $cookie = $user . ':' . $token;
-    $mac = hash_hmac('sha256', $cookie, SECRET_KEY);
-    $cookie .= ':' . $mac;
-    setcookie('rememberme', $cookie);
-}
-function rememberMe() {
-    $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
-    if ($cookie) {
-		$loggedin = true;
-        list ($user, $token, $mac) = explode(':', $cookie);
-        if (!hash_equals(hash_hmac('sha256', $user . ':' . $token, SECRET_KEY), $mac)) {
-            return false;
-        }
-        $usertoken = fetchTokenByUserName($user);
-        if (hash_equals($usertoken, $token)) {
-            logUserIn($user);
-        }
-    }else{
-		$loggedin = true;
-	}
-}
-rememberMe();
+//function onLogin($user) {
+//    $token = GenerateRandomToken(); // generate a token, should be 128 - 256 bit
+//    storeTokenForUser($user, $token);
+//    $cookie = $user . ':' . $token;
+//    $mac = hash_hmac('sha256', $cookie, SECRET_KEY);
+//    $cookie .= ':' . $mac;
+//    setcookie('rememberme', $cookie);
+//}
+//function rememberMe() {
+//    $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
+//    if ($cookie) {
+//		$loggedin = true;
+//        list ($user, $token, $mac) = explode(':', $cookie);
+//        if (!hash_equals(hash_hmac('sha256', $user . ':' . $token, SECRET_KEY), $mac)) {
+//            return false;
+//        }
+//        $usertoken = fetchTokenByUserName($user);
+//        if (hash_equals($usertoken, $token)) {
+//            logUserIn($user);
+//        }
+//    }else{
+//		$loggedin = true;
+//	}
+//}
+//rememberMe();
+
+//TODO: Session code here
+$loggedin = true;
 
 $serverName = "localhost";
 $username = "root";
@@ -88,5 +91,6 @@ if($connectionGood){
 	include ($pathFile.'Richardson_finalProject.html');
 	$css_File = file_get_contents($pathFile.'Richardson_finalProject.css');
 	echo '<style type="text/css">' . $css_File . '</style>';
+
 }
 ?>

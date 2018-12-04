@@ -2,7 +2,7 @@
 <!--
 Name: Douglas Richardson
 Date: 11/1/18
-Desc: CSCI 3000 DA C0. Final Project. Login page html
+Desc: CSCI 3000 DA C0. Final Project. Home page html
 -->
 
 <html>
@@ -23,16 +23,18 @@ Desc: CSCI 3000 DA C0. Final Project. Login page html
 			<input class="headButtons" type="submit" value="Sign Up">
 		</form>
 		<form action="login.php" method="post">
-			<input class="headButtons menuButtonSelected" type="submit" value="Login">
+			<input class="headButtons" type="submit" value="Login">
 		</form>
+		<!-- <button class="headButtons">Login</button>
+		<button class="headButtons">Sign Up</button> -->
 	</div>
 </div>
 
-<div class="row">
+
 
 <div class="col-2 menu">
   <ul>
-    <li><button class="menuButton" onClick="homePage()">Home</button></li>
+    <li><button class="menuButton menuButtonSelected" onClick="homePage()">Home</button></li>
     <li><button class="menuButton" onClick="drinksPage()">Drinks</button></li>
     <li><button class="menuButton" onClick="locationPage()">Locations</button></li>
 <!--Add more buttons later for inventory-->
@@ -41,7 +43,7 @@ Desc: CSCI 3000 DA C0. Final Project. Login page html
 
 <div class="col-10 center">
 	<div class="main_innerDiv">
-		<h1>Login</h1>
+		<h1>Home</h1>
 		<p>We are a small start up company with 3 employees. We craft the most exclusive drinks that anyone may purchase from our site. Why do you want to buy a drink online? Well why not find out. You have nothing to lose.</p>
 	</div>
 </div>
@@ -50,7 +52,6 @@ Desc: CSCI 3000 DA C0. Final Project. Login page html
 <div class="col-12 footer">
 </div>
 
-</div> <!-- End of row -->
 <script src="Richardson_finalProject.js"></script>
 </body>
 </html>

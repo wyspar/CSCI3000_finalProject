@@ -22,8 +22,9 @@ Desc: CSCI 3000 DA C0. Final Project. Css
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
-html {
+html, body {
     font-family: "Arial", sans-serif;
+	height: 100vh;
 }
 .header {
     background-color: #E0E0E0;
@@ -39,7 +40,34 @@ div.headerButtons{
 	float:right;
 	padding: 1em;
 	display: flex;
-	
+}
+p.addedDrinks{
+	font-size:1.5em;
+	font-weight: bold;
+	color: red;
+	display:inline;
+}
+p.addedDrinkssmall{
+	font-size:1em;
+	font-weight: bold;
+	color: black;
+	display:inline;
+}
+input.drinkButton{
+	display:inline;
+	width: 150px;  
+	height: 50px;
+	padding: 10px;
+	position:relative;
+    background-color: dimgrey;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	border: thin solid black;
+	font-size: 1em;
+	cursor: pointer;
+}
+input.drinkButton:hover{
+	background-color: #B3B3B3;
 }
 input.headButtons{
 	display:inline-block;
@@ -64,41 +92,25 @@ input.headButtons:hover{
 	background-position: center; 
 }
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
+.Drink{
+	margin:0;
+	padding:0;
+	line-height:15px;
+	display:inline;
 }
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+div.Drink{
+	padding:15px;
+	border: thin solid black;
 }
-
-/* Change color of dropdown links on hover */
-.dropdown-content button:hover {background-color: #f1f1f1}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: inline-block;
-    position: relative;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 2;
+span.drinkAmount{
+	border:thin solid black;
+	background-color:white;
+	padding-left:7px;
+	padding-right:7px;
 }
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-
 .menu{
-	height:350px;
+	height:70vh;
+	position:relative;
 	border: thin solid black;
 	background-color:#b30000;
 }
@@ -128,6 +140,10 @@ button.menuButtonSelected{
 	background-color: #B3B3B3;
 	border: thin solid white;
 }
+input.menuButtonSelected{
+	background-color: #B3B3B3;
+	border: thin solid white;
+}
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     [class*="col-"] {
@@ -149,12 +165,14 @@ button.menuButtonSelected{
 		width: 100%;
 	}
 	div.headerButtons{
-		display: flex;
+		display: inline-block;
 		width: 100%;
+		position:relative;
 		background-color: #E0E0E0;
 		border: thin solid black;
 		height: auto;
 		margin: 0 auto;
+		line-height:4em;
 	}
 	button.headButtons{
 		display:inline-block;
@@ -173,14 +191,15 @@ button.menuButtonSelected{
 	border: thin solid black;
 	background-color:#E0E0E0;
 	padding: 15px;
-	height:350px;
+	height:70vh;
  }
 
  .footer{
 	border: thin solid black;
 	background-color:#E0E0E0;
-	color:white;
 	padding: 15px;
-	height:100px;
+	height:10vh;
  }
- 
+ .footer::after{
+	content: "Douglas Richardson";
+ }

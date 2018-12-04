@@ -2,9 +2,8 @@
 <!--
 Name: Douglas Richardson
 Date: 11/1/18
-Desc: CSCI 3000 DA C0. Final Project. Login page html
+Desc: CSCI 3000 DA C0. Final Project. Locations page html
 -->
-
 <html>
 <head>
 	<title>Bizzy Beverages</title>
@@ -17,13 +16,13 @@ Desc: CSCI 3000 DA C0. Final Project. Login page html
 	<h1 id="title">Buffalo Bistro</h1>
 	<div class="headerButtons">
 		<form action="shoppingCart.php" method="post">
-			<input <?php if(@!$loggedin){echo"style='display:none;'";}?>class="headButtons shoppingCart" type="submit" value=""></input>
+			<input <?php if(@!$loggedin){echo"style='display:none;'";}?> class="headButtons shoppingCart" type="submit" value=""></input>
 		</form>
 		<form action="signup.php" method="post">
-			<input class="headButtons" type="submit" value="Sign Up">
+			<input <?php if(@$loggedin){echo"style='display:none;'";}?> class="headButtons" type="submit" value="Sign Up">
 		</form>
 		<form action="login.php" method="post">
-			<input class="headButtons menuButtonSelected" type="submit" value="Login">
+			<input <?php if(@$loggedin){echo"style='display:none;'";}?> class="headButtons" type="submit" value="Login">
 		</form>
 	</div>
 </div>
@@ -34,15 +33,15 @@ Desc: CSCI 3000 DA C0. Final Project. Login page html
   <ul>
     <li><button class="menuButton" onClick="homePage()">Home</button></li>
     <li><button class="menuButton" onClick="drinksPage()">Drinks</button></li>
-    <li><button class="menuButton" onClick="locationPage()">Locations</button></li>
+    <li><button class="menuButton menuButtonSelected" onClick="locationPage()">Locations</button></li>
 <!--Add more buttons later for inventory-->
   </ul>
 </div>
 
 <div class="col-10 center">
 	<div class="main_innerDiv">
-		<h1>Login</h1>
-		<p>We are a small start up company with 3 employees. We craft the most exclusive drinks that anyone may purchase from our site. Why do you want to buy a drink online? Well why not find out. You have nothing to lose.</p>
+		<h1>Locations</h1>
+		<p>We are located in Dahlonega, GA</p>
 	</div>
 </div>
 
