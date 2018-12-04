@@ -52,8 +52,9 @@ $loggedin = true;
 		<span><p <?php if(@!$drink1Amount or @!$drink2Amount or @!$drink3Amount or @!$drink4Amount or @!$drink5Amount or @!$drink6Amount or @!$drink7Amount or @!$drink8Amount or @!$drink9Amount or @!$drink10Amount){echo"style='display:none;'";}?>class="addedDrinks">Added Drinks</p></span>
 		<br><br><br>
 		<div class="Drink">
-			<h3 class="Drink">Drink 1:</h3>
-			<span class="Drink">Its a drink</span>
+			<h3 class="Drink">The Fizz Bizz:</h3>
+			<span class="Drink">Our original Best Seller, The Fizz that will give you the Bizz
+			</span>
 			<button onClick="decDrink1()">-</button>
 			<span id="drink1Amount" class="drinkAmount">0</span>
 			<button onClick="incDrink1()">+</button>
@@ -61,8 +62,8 @@ $loggedin = true;
 		</div>
 		<br><br><br>
 		<div class="Drink">
-			<h3 class="Drink">Drink 2:</h3>
-			<span class="Drink">Its a drink</span>
+			<h3 class="Drink">Is Pepsi Okay?:</h3>
+			<span class="Drink">Because who needs coke when we have this</span>
 			<button onClick="decDrink2()">-</button>
 			<span id="drink2Amount" class="drinkAmount">0</span>
 			<button onClick="incDrink2()">+</button>
@@ -70,8 +71,8 @@ $loggedin = true;
 		</div>
 		<br><br><br>
 		<div class="Drink">
-			<h3 class="Drink">Drink 3:</h3>
-			<span class="Drink">Its a drink</span>
+			<h3 class="Drink">Slurp:</h3>
+			<span class="Drink">The drink that you cant help but slurp</span>
 			<button onClick="decDrink3()">-</button>
 			<span id="drink3Amount" class="drinkAmount">0</span>
 			<button onClick="incDrink3()">+</button>
@@ -79,8 +80,8 @@ $loggedin = true;
 		</div>
 		<br><br><br>
 		<div class="Drink">
-			<h3 class="Drink">Drink 4:</h3>
-			<span class="Drink">Its a drink</span>
+			<h3 class="Drink">Glurp:</h3>
+			<span class="Drink">The drink you cant help but Glurp</span>
 			<button onClick="decDrink4()">-</button>
 			<span id="drink4Amount" class="drinkAmount">0</span>
 			<button onClick="incDrink4()">+</button>
@@ -88,8 +89,9 @@ $loggedin = true;
 		</div>
 		<br><br><br>
 		<div class="Drink">
-			<h3 class="Drink">Drink 5:</h3>
-			<span class="Drink">Its a drink</span>
+			<h3 class="Drink">Butter:</h3>
+			<span class="Drink">Our hit featured on Paula Dean's show! taste the glory of carbonated butter
+			</span>
 			<button onClick="decDrink5()">-</button>
 			<span id="drink5Amount" class="drinkAmount">0</span>
 			<button onClick="incDrink5()">+</button>
@@ -97,8 +99,9 @@ $loggedin = true;
 		</div>
 		<br><br><br>
 		<div class="Drink">
-			<h3 class="Drink">Drink 6:</h3>
-			<span class="Drink">Its a drink</span>
+			<h3 class="Drink">I can't believe it's not Butter!:</h3>
+			<span class="Drink">Our low fat version of a fan favorite! tastes almost like the real thing!
+			</span>
 			<button onClick="decDrink6()">-</button>
 			<span id="drink6Amount" class="drinkAmount">0</span>
 			<button onClick="incDrink6()">+</button>
@@ -106,8 +109,8 @@ $loggedin = true;
 		</div>
 		<br><br><br>
 		<div class="Drink">
-			<h3 class="Drink">Drink 7:</h3>
-			<span class="Drink">Its a drink</span>
+			<h3 class="Drink">Bees:</h3>
+			<span class="Drink">Shake well before opening!</span>
 			<button onClick="decDrink7()">-</button>
 			<span id="drink7Amount" class="drinkAmount">0</span>
 			<button onClick="incDrink7()">+</button>
@@ -115,8 +118,9 @@ $loggedin = true;
 		</div>
 		<br><br><br>
 		<div class="Drink">
-			<h3 class="Drink">Drink 8:</h3>
-			<span class="Drink">Its a drink</span>
+			<h3 class="Drink">Blue Milk:</h3>
+			<span class="Drink">Straight from the Banthas of Tatooine, Everyone's favorite blue drink
+			</span>
 			<button onClick="decDrink8()">-</button>
 			<span id="drink8Amount" class="drinkAmount">0</span>
 			<button onClick="incDrink8()">+</button>
@@ -124,8 +128,9 @@ $loggedin = true;
 		</div>
 		<br><br><br>
 		<div class="Drink">
-			<h3 class="Drink">Drink 9:</h3>
-			<span class="Drink">Its a drink</span>
+			<h3 class="Drink">Lava:</h3>
+			<span class="Drink">Literally just molten lava, you people will buy anything
+			</span>
 			<button onClick="decDrink9()">-</button>
 			<span id="drink9Amount" class="drinkAmount">0</span>
 			<button onClick="incDrink9()">+</button>
@@ -133,8 +138,8 @@ $loggedin = true;
 		</div>
 		<br><br><br>
 		<div class="Drink">
-			<h3 class="Drink">Drink 10:</h3>
-			<span class="Drink">Its a drink</span>
+			<h3 class="Drink">Diablo:</h3>
+			<span class="Drink">Satan in a can</span>
 			<button onClick="decDrink10()">-</button>
 			<span id="drink10Amount" class="drinkAmount">0</span>
 			<button onClick="incDrink10()">+</button>
