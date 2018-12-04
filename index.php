@@ -4,6 +4,18 @@ Name: Douglas Richardson
 Date: 11/17/18
 Desc: CSCI 3000 DA C0. Final PHP index file. Creates database and table
 */
+  session_start(); 
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+
 function rememberMe() {
     $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
     if ($cookie) {
