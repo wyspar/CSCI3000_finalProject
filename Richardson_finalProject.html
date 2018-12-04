@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+<?php 
+  session_start(); 
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+?>
 <!--
 Name: Douglas Richardson
 Date: 11/1/18
@@ -16,17 +28,11 @@ Desc: CSCI 3000 DA C0. Final Project. Home page html
 <div class="header">
 	<h1 id="title">Buffalo Bistro</h1>
 	<div class="headerButtons">
+		<h3 style="color: #b30000;"><u>Welcome <strong><?php echo $_SESSION['username']; ?></strong>!</u></h3>
 		<form action="shoppingCart.php" method="post">
-			<input <?php if(@!$loggedin){echo"style='display:none;'";}?>class="headButtons shoppingCart" type="submit" value=""></input>
+			<input class="headButtons shoppingCart" type="submit" value=""></input>
 		</form>
-		<form action="signup.php" method="post">
-			<input class="headButtons" type="submit" value="Sign Up">
-		</form>
-		<form action="login.php" method="post">
-			<input class="headButtons" type="submit" value="Login">
-		</form>
-		<!-- <button class="headButtons">Login</button>
-		<button class="headButtons">Sign Up</button> -->
+		<a href="index.php?logout='1'" class="headerButtons" style="color: white;">Logout</a> 
 	</div>
 </div>
 
