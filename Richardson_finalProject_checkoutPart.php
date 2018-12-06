@@ -2,12 +2,11 @@
 <!--
 Name: Douglas Richardson
 Date: 11/1/18
-Desc: CSCI 3000 DA C0. Final Project. Home page html
+Desc: CSCI 3000 DA C0. Final Project. Check out page html
 -->
 
 <?php
-  session_start(); 
-
+@session_start();
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
   	/* header('location: index.php'); */
@@ -36,7 +35,7 @@ Desc: CSCI 3000 DA C0. Final Project. Home page html
 	<div class="headerButtons">
 		<h3 <?php if(@!$loggedin){echo"style='display:none;'";}?> style="color: #b30000;"><u <?php if(@!$loggedin){echo"style='display:none;'";}?>>Welcome <strong><?php echo @$_SESSION['username']; ?></strong>!</u></h3>
 		<form action="shoppingCart.php" method="post">
-			<input class="headButtons shoppingCart" type="submit" value=""></input>
+			<input class="headButtons shoppingCart menuButtonSelected" type="submit" value=""></input>
 		</form>
 		<form action="register.php" method="post">
 			<input <?php if(@$loggedin){echo"style='display:none;'";}?>class="headButtons" type="submit" value="Sign Up">
@@ -47,26 +46,41 @@ Desc: CSCI 3000 DA C0. Final Project. Home page html
 		<form action="index.php?logout='1'" method="post">
 			<input <?php if(@!$loggedin){echo"style='display:none;'";}?>class="headButtons" type="submit" value="Logout">
 		</form>
-		<!-- <button class="headButtons">Login</button>
-		<button class="headButtons">Sign Up</button> -->
 	</div>
 </div>
 
 
-
 <div class="col-2 menu">
   <ul>
-    <li><button class="menuButton menuButtonSelected" onClick="homePage()">Home</button></li>
+    <li><button class="menuButton" onClick="homePage()">Home</button></li>
     <li><button class="menuButton" onClick="drinksPage()">Drinks</button></li>
     <li><button class="menuButton" onClick="locationPage()">Locations</button></li>
 <!--Add more buttons later for inventory-->
   </ul>
 </div>
 
-<div class="col-10 center">
+<div class="col-10 center" style="overflow-y:auto;">
 	<div class="main_innerDiv">
-		<h1>Home</h1>
-		<p>We are a small start up company with 3 employees. We craft the most exclusive drinks that anyone may purchase from our site. Why do you want to buy a drink online? Well why not find out. You have nothing to lose.</p>
+		<h1>Checking Out</h1>
+		<p>Enter Those Wacky Numbers</p>
+		<form method="post" action="login.php">
+		<div class="input-group">
+			<label>Card Number:</label>
+			<input type="text" name="username" >
+		</div>
+		<div class="input-group">
+			<label>Expiration Date:</label>
+			<input type="text" name="username" >
+		</div>
+		<div class="input-group">
+			<label>CVV:</label>
+			<input type="password" name="password">
+		</div>
+	  </form>
+	  <br><br>
+		<form action="report.php" method="post">
+			<input class="headButtons" type="submit" value="Buy">
+		</form>
 	</div>
 </div>
 

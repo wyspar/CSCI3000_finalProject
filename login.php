@@ -1,96 +1,31 @@
-<?php
-/*
-Name: Douglas Richardson
-Date: 11/29/18
-Desc: CSCI 3000 DA C0. Final PHP login file. Logs the customer in
-*/
-
-//function onLogin($user) {
-//    $token = GenerateRandomToken(); // generate a token, should be 128 - 256 bit
-//    storeTokenForUser($user, $token);
-//    $cookie = $user . ':' . $token;
-//    $mac = hash_hmac('sha256', $cookie, SECRET_KEY);
-//    $cookie .= ':' . $mac;
-//    setcookie('rememberme', $cookie);
-//}
-//function rememberMe() {
-//    $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
-//    if ($cookie) {
-//		$loggedin = true;
-//        list ($user, $token, $mac) = explode(':', $cookie);
-//        if (!hash_equals(hash_hmac('sha256', $user . ':' . $token, SECRET_KEY), $mac)) {
-//            return false;
-//        }
-//        $usertoken = fetchTokenByUserName($user);
-//        if (hash_equals($usertoken, $token)) {
-//            logUserIn($user);
-//        }
-//    }else{
-//		$loggedin = true;
-//	}
-//}
-//rememberMe();
-
-//TODO: Session code here
-$loggedin = true;
-
-$serverName = "localhost";
-$username = "root";
-$password ="";
-$dbname = "BuffaloBistroDB";
-$tableName = "customers";
-$connectionGood = false;
-try{
-	/* Creates the database only*/
-	$conn = new PDO("mysql:host=$serverName",$username,$password);
-	$conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-	$sql = "CREATE DATABASE $dbname";
-	$conn->exec($sql);
-}catch(PDOException $e){
-	/* Ignore if it says it already exists since we are always calling the code */
-	if (strpos($e, 'database exists')===false){
-		echo "Connection failed: ".$e->getMessage();
-	}
-	
-}
-$conn = null;
-try{
-/* Create a second connection because this is adding into the database */
-	$conn2 = new PDO("mysql:host=$serverName;dbname=$dbname",$username,$password);
-	$conn2->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-	$sqlTable = "CREATE TABLE $tableName(
-		id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-		firstname VARCHAR(30) NOT NULL,
-		lastname VARCHAR(30) NOT NULL,
-		password VARCHAR(300) NOT NULL,
-		email VARCHAR(60),
-		reg_date TIMESTAMP
-	)";
-	$conn2->exec($sqlTable);
-//	$sqlAddAnswerKey = "INSERT INTO $tableName(studentid,firstname,lastname,email,answer1,answer2,answer3,correctAmount)
-//	VALUES('000000000','Instructor','Instructor','drrich7754@ung.edu','c','a','c','3')";
-//	$conn2->exec($sqlAddAnswerKey);
-	$connectionGood = true;
-}catch(PDOException $e){
-	/* Ignore if it says it already exists since we are always calling the code */
-	if (strpos($e, "Table 'customers' already exists")===false){
-		echo "Connection failed: ".$e->getMessage();
-	}else{
-		$connectionGood = true;
-	}
-}
-
-$conn2 = null;
-
-/*Put the file path here of where the html, css and js files are*/
-/* Don't forget to add an extra \ to every \ */
-// $pathFile = 'E:\\Homework\\Fall 2018\\3000\\homework8\\';
-$pathFile = '';
-if($connectionGood){
-	
-	include ($pathFile.'Richardson_finalProject.html');
-	$css_File = file_get_contents($pathFile.'Richardson_finalProject.css');
-	echo '<style type="text/css">' . $css_File . '</style>';
-
-}
-?>
+<?php include('server.php') ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Log In</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="header">
+  	<h2>Login</h2>
+  </div>
+	 
+  <form method="post" action="login.php">
+  	<?php include('errors.php'); ?>
+  	<div class="input-group">
+  		<label>Username</label>
+  		<input type="text" name="username" >
+  	</div>
+  	<div class="input-group">
+  		<label>Password</label>
+  		<input type="password" name="password">
+  	</div>
+  	<div class="input-group">
+  		<button type="submit" class="btn" name="login_user">Login</button>
+  	</div>
+  	<p>
+  		Not yet a member? <a href="register.php">Sign up</a>
+  	</p>
+  </form>
+</body>
+</html>

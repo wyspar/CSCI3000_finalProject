@@ -5,10 +5,20 @@ Date: 12/3/18
 Desc: CSCI 3000 DA C0. Final PHP checkout file.
 */
 
-//TODO:Session code here
-session_start();
-$loggedin = true;
-
+@session_start();
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	/* header('location: index.php'); */
+  }else{
+	$loggedin = true;
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	/* header("location: index.php"); */
+	$loggedin = false;
+  }
+  
 /* Shopping cart session code */
 $drink1Amount = 0;
 if($_SESSION["drink1"]){
@@ -29,9 +39,14 @@ if($loggedin){
 	$pathFile = '';
 	if($connectionGood){
 
-		include ($pathFile.'Richardson_finalProject_shoppingCart.html');
+		include ($pathFile.'Richardson_finalProject_checkoutPart.php');
 //		$css_File = file_get_contents($pathFile.'Richardson_finalProject.css');
 //		echo '<style type="text/css">' . $css_File . '</style>';
+	}
+}else{
+	if (!isset($_SESSION['username'])) {
+		$_SESSION['msg'] = "You must log in first";
+		header('location: login.php');
 	}
 }
 ?>

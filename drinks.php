@@ -9,6 +9,7 @@ Desc: CSCI 3000 DA C0. Final PHP drinks file.
 session_start();
 $drinks_array = array();
 
+
 /* Gets the drink amounts*/
 $drink1Amount = $_POST["drink1Amount"];
 $drink2Amount = $_POST["drink2Amount"];
@@ -107,24 +108,16 @@ $_SESSION["drink8"] = $drinks_array["drink8"];
 $_SESSION["drink9"] = $drinks_array["drink9"];
 $_SESSION["drink10"] = $drinks_array["drink10"];
 //$drinks_array["drink1"]
-$serverName = "localhost";
-$username = "root";
-$password ="";
-$dbname = "BuffaloBistroDB";
-$tableName = "customers";
-$connectionGood = true;
-
-$conn2 = null;
 
 /*Put the file path here of where the html, css and js files are*/
 /* Don't forget to add an extra \ to every \ */
 // $pathFile = 'E:\\Homework\\Fall 2018\\3000\\homework8\\';
 $pathFile = '';
-if($connectionGood){
-	include ($pathFile.'Richardson_finalProject_drinks.php');
-	$css_File = file_get_contents($pathFile.'Richardson_finalProject.css');
-	echo '<style type="text/css">' . $css_File . '</style>';
-	$css_File = file_get_contents($pathFile.'Richardson_finalProject.js');
-	echo '<script type="text/javascript">' . $css_File . '</script>';
-}
+
+include ($pathFile.'Richardson_finalProject_drinks.php');
+$css_File = file_get_contents($pathFile.'Richardson_finalProject.css');
+echo '<style type="text/css">' . $css_File . '</style>';
+$css_File = file_get_contents($pathFile.'Richardson_finalProject.js');
+echo '<script type="text/javascript">' . $css_File . '</script>';
+
 ?>

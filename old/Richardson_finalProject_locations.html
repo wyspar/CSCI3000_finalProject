@@ -4,25 +4,6 @@ Name: Douglas Richardson
 Date: 11/1/18
 Desc: CSCI 3000 DA C0. Final Project. Locations page html
 -->
-
-<?php
-session_start(); 
-
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	/* header('location: index.php'); */
-  }else{
-	$loggedin = true;
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	/* header("location: index.php"); */
-	$loggedin = false;
-  }
-
-?>
-
 <html>
 <head>
 	<title>Bizzy Beverages</title>
@@ -34,18 +15,14 @@ session_start();
 <div class="header">
 	<h1 id="title">Buffalo Bistro</h1>
 	<div class="headerButtons">
-		<h3 <?php if(@!$loggedin){echo"style='display:none;'";}?> style="color: #b30000;"><u <?php if(@!$loggedin){echo"style='display:none;'";}?>>Welcome <strong><?php echo @$_SESSION['username']; ?></strong>!</u></h3>
 		<form action="shoppingCart.php" method="post">
-			<input class="headButtons shoppingCart" type="submit" value=""></input>
+			<input <?php if(@!$loggedin){echo"style='display:none;'";}?>class="headButtons shoppingCart" type="submit" value=""></input>
 		</form>
-		<form action="register.php" method="post">
-			<input <?php if(@$loggedin){echo"style='display:none;'";}?>class="headButtons" type="submit" value="Sign Up">
+		<form action="signup.php" method="post">
+			<input class="headButtons" type="submit" value="Sign Up">
 		</form>
 		<form action="login.php" method="post">
-			<input <?php if(@$loggedin){echo"style='display:none;'";}?>class="headButtons" type="submit" value="Login">
-		</form>
-		<form action="index.php?logout='1'" method="post">
-			<input <?php if(@!$loggedin){echo"style='display:none;'";}?>class="headButtons" type="submit" value="Logout">
+			<input class="headButtons" type="submit" value="Login">
 		</form>
 	</div>
 </div>
